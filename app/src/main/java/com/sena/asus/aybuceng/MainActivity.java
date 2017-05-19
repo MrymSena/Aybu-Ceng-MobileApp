@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-   //     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+      //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+     //   setSupportActionBar(toolbar);
 
         mSectionPageAdapter= new SectionPageAdapter(getSupportFragmentManager());
 
@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager){
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FoodlistFragment(),"Foodlist");
-        adapter.addFragment(new CengAnnouncements_Fragment(),"Ceng Announcement");
-        adapter.addFragment(new CengNews_Fragment(),"Ceng News");
+        adapter.addFragment(new FoodlistFragment(),"Yemek Listesi");
+        adapter.addFragment(new CengAnnouncements_Fragment(),"Duyurular");
+        adapter.addFragment(new CengNews_Fragment(),"Haberler");
         viewPager.setAdapter(adapter);
 
     }

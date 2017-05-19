@@ -13,76 +13,41 @@ import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
 
 /**
  * Created by Asus on 10.05.2017.
  */
 public class FoodlistFragment extends Fragment {
     private static final String TAG="foodlist";
-    private TextView text;
+    private TextView text,date;
+
     private ProgressDialog mProgressDialog;
     private String url ="http://ybu.edu.tr/sks/";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view= inflater.inflate(R.layout.foodlist_fragment,container,false);
 
         text=(TextView)view.findViewById(R.id.foodText);
-        text.setText("Foodlist");
+        date=(TextView)view.findViewById(R.id.Date);
+
+        //    text.setText("Foodlist");
 
         new Foodlist().execute();
 
-   /*       mProgressDialog = new ProgressDialog(getActivity());
-        Thread t = new Thread(new Runnable() {
-            Document doc;
-            Element element;
-
-            @Override
-            public void run() {
-                try {
-                    handle.sendMessage(handle.obtainMessage());
-
-                    doc = Jsoup.connect(url).get();
-                    element = doc.select("table").first();
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            text.setText(element.text());
-                            mProgressDialog.cancel();
-                        }
-                    });
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-
-
-        });
-        t.start();
-*/
 
 
         return view;
     }
-   /* Handler handle = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
 
-            mProgressDialog.setTitle("Foodlist");
-            mProgressDialog.setMessage("Loading...");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
-        }
-    };*/
 
 
     public class Foodlist extends AsyncTask<Void,Void,Void> {
-        String words="";
-
+        ArrayList<String> words = new ArrayList<>();
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -91,25 +56,38 @@ public class FoodlistFragment extends Fragment {
         }
 
         @Override
-        protected Void doInBackground(Void... params){
+        protected Void doInBackground(Void... params) {
 
-            try{
+            try {
+                Document doc = Jsoup.connect(url).get();
 
-                Document doc = Jsoup.connect("http://ybu.edu.tr/sks/").get();
-                Element element = doc.select("table").first();
-                words=element.text();
-            }catch (Exception e){
-                e.printStackTrace();
+                //  for(int i=0; i<list; i++) {
+                Element table = doc.select("table").first();
+                Elements rows = table.select("tr");
+                //  words = element.text();
+                for (int i = 1; i < rows.size(); i++) { //first row is the col names so skip it.
+                    Element row = rows.get(i);
+                    Elements cols = row.select("td");
+                    words.add(cols.text());
+
+                }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                return null;
             }
-            return null;
-        }
-        @Override
-        protected void onPostExecute(Void aVoid){
-            super.onPostExecute(aVoid);
-            text.setText(words);
-            mProgressDialog.dismiss();
+            @Override
+            protected void onPostExecute (Void aVoid){
+                super.onPostExecute(aVoid);
+                String list="";
+                for (int k=2; k<words.size(); k++) {
+                   list=list+words.get(k)+"\n";
+                }
+                date.setText(words.get(1));
+                text.setText(list);
+                mProgressDialog.dismiss();
 
+            }
         }
-    }
 
 }

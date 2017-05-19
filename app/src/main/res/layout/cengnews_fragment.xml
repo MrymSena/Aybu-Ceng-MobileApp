@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:touchscreenBlocksFocus="false"
+    style="@style/AppTheme">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/cengNews_text"/>
+
+    <ListView
+        android:id="@+id/listNews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/All_news"
+        android:id="@+id/tumHaberler"
+        android:textColor="@color/colorList"
+        android:background="@drawable/button_border"
+        android:layout_margin="75dp"
+
+        />
 </LinearLayout>

@@ -1,10 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/foodimages_margin_top">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img1"
+            android:padding="@dimen/foodimages_padding_left_right"
+            android:src="@drawable/cutlery"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img2"
+            android:padding="@dimen/foodimages_padding_left_right"
+            android:src="@drawable/bowl"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img3"
+            android:padding="@dimen/foodimages_padding_left_right"
+            android:src="@drawable/spaguetti"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img4"
+            android:padding="@dimen/foodimages_padding_left_right"
+            android:src="@drawable/bread"
+            />
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/foodText"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/Date"
+        android:textSize="@dimen/text_date"
+        android:textColor="@color/date"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/text_date_margin"
+        android:layout_marginBottom="@dimen/text_date_margin_bottom"
+        android:forceHasOverlappingRendering="false"
+        android:textStyle="italic" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodText"
+        android:layout_gravity="center"
+        android:textColor="@color/foodlist"
+        android:textSize="@dimen/foodlist_Size"
+        android:textStyle="bold" />
+
 </LinearLayout>

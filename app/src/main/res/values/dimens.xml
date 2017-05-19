@@ -4,4 +4,11 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="text_date">25dp</dimen>
+    <dimen name="foodlist_Size">20dp</dimen>
+    <dimen name="text_date_margin">35dp</dimen>
+    <dimen name="text_date_margin_bottom">15dp</dimen>
+    <dimen name="foodimages_margin_top">18dp</dimen>
+    <dimen name="foodimages_padding_left_right">8dp</dimen>
+
 </resources>

@@ -6,4 +6,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="All_announcements">Tüm Duyurular</string>
+    <string name="All_news">Tüm Haberler</string>
+
 </resources>
