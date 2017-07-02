@@ -20,12 +20,12 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="@string/All_news"
         android:id="@+id/tumHaberler"
         android:textColor="@color/colorList"
         android:background="@drawable/button_border"
-        android:layout_margin="75dp"
+        android:layout_margin="30dp"
 
         />
 </LinearLayout>
